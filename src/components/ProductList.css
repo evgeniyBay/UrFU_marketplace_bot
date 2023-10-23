@@ -1,0 +1,13 @@
+/* ProductList.css */
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-container {
+    width: 48%; /* Подстраивайте значение ширины под свои нужды */
+    margin: 1%; /* Маленький отступ между товарами */
+    box-sizing: border-box; /* Чтобы учесть отступы в ширине */
+}
