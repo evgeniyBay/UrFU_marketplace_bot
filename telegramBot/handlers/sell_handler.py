@@ -1,14 +1,16 @@
+import json
 import random
 
+import requests
 from aiogram import Router, F
 from aiogram.filters.state import State, StatesGroup
-from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
-from keyboards import main_keyboard, approve_product_kb
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-from sql import sqlite
+from telegramBot.keyboards import main_keyboard, approve_product_kb
+from telegramBot.main import bot, TOKEN
+from telegramBot.sql import sqlite
 
 router = Router()
 
@@ -91,9 +93,26 @@ async def description_chosen(message: Message, state: FSMContext):
 
     if message.text == "3✅":
         id = random.randint(0, 100)
+        data = await state.get_data()
+
+        file = await bot.get_file(data['photo'])
+        url = f"https://api.telegram.org/file/bot{TOKEN}/{file.file_path}"
+        response = requests.get(url)
+
         await sqlite.create_product(product_id=id)
-        await sqlite.edit_profile(state, product_id=id, seller_id=message.from_user.id)
+        await sqlite.edit_profile(state, product_id=id, seller_id=message.from_user.id, photo=response.content.hex())
 
         await state.clear()
 
         await message.answer("Ваш товар успешно выставлен на продажу!", reply_markup=main_keyboard.kb)
+
+        product_info = {"product_id": id, "seller_id": message.from_user.id, "title": data['title'],
+                        "cost": data['cost'], "description": data['description'], "photo": response.content.hex(),
+                        "photo_id": data['photo']}
+
+        json_file = json.dumps(product_info, indent=4)
+
+        # with open("test.json", "w") as file:
+        #     file.write(json_file)
+        #
+        # Image.open(BytesIO(bytes.fromhex(product_info['photo']))).save("test.png")
