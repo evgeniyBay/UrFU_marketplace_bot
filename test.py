@@ -14,7 +14,7 @@ product_data = {
     'price': 124311,
     'description': 'Потестить',
     'photo': encoded_image,
-    'user_id': 13,
+    'user_id': '13',
     'date': '2022-12-31'
 }
 

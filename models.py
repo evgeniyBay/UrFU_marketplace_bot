@@ -9,7 +9,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.Text)
     photo = db.Column(db.String())
-    user_id = db.Column(db.Integer)
+    user_id = db.Column(db.String())
     date = db.Column(db.String(100))
 
     def __init__(self, name, price, description, photo, user_id, date):

@@ -20,7 +20,7 @@ def create_product():
     db.session.add(new_product)
     db.session.commit()
 
-    return 'Товар добавлен', 201
+    return jsonify({'id': new_product.id}), 201
 
 
 @app.route('/product/<int:product_id>', methods=['GET'])
