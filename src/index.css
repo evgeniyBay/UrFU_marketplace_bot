@@ -1,0 +1,185 @@
+.screen {
+  display: flex;
+  /* width: 375px;
+  height: 812px; */
+  padding: 22px 12px 4px 12px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  /* border-radius: 40px; */
+  background: #E885A3;
+}
+
+.titlediv{
+  display: flex;
+  width: 100;
+  height: 39px;
+  /* padding: 0px 5px 1px 6px; */
+  justify-content: center;
+  align-items: center;
+  /* background-color: palegoldenrod; */
+}
+
+.title{
+  color: #2B2B2B;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.31px;
+}
+
+.products {
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: calc(50% - 16px);
+  margin-bottom: 8px;
+  padding: 6px;
+
+  background-color: #E5DAF6;
+  border-radius: 6px;
+  
+  cursor: pointer;
+}
+
+.product:active {
+  opacity: 0.5;
+}
+
+.photo {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 6px;
+}
+
+.name {
+  color: #2B2B2B;
+  font-family: 'Inter';
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.price {
+  font-family: 'Inter';
+  color: #2B2B2B;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.button {
+  color: #2B2B2B;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+
+  display: flex;
+  width: 50%;
+  height: 37px;
+  /* height: 37px; */
+  /* padding: 14px 9px; */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+
+  border-radius: 5px;
+  background: var(--Purple-Light, #E5DAF6);
+
+  border: none;
+  cursor: pointer;
+}
+
+.button:active {
+  opacity: 0.5;
+}
+
+.search {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  gap: 11px;
+}
+
+.search2 {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #E5DAF6;
+  border-radius: 5px;
+  border: none;
+}
+
+.search_field {
+  
+  font-size: 20px;
+  outline: none;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 300;
+  line-height: normal;
+  width: 100%;
+  background-color: var(--Purple-Light, #E5DAF6);
+  border-radius: 5px;
+  border: none;
+}
+
+.search_button {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: #E5DAF6;
+  border-radius: 5px;
+  border: none;
+
+  cursor: pointer;
+}
+
+.heart_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  background: #D13362;
+
+  cursor: pointer;
+}
+
+.heart_block:active {
+  opacity: 0.5;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('E:\Repositories\front\react-intro\public\fonts\Inter-VariableFont_slnt,wght.ttf') format('truetype');
+}
