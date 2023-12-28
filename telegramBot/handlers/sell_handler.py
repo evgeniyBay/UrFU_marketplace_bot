@@ -1,7 +1,10 @@
+import datetime
 import json
 import random
+from io import BytesIO
 
 import requests
+from PIL import Image
 from aiogram import Router, F
 from aiogram.filters.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
@@ -106,13 +109,13 @@ async def description_chosen(message: Message, state: FSMContext):
 
         await message.answer("Ваш товар успешно выставлен на продажу!", reply_markup=main_keyboard.kb)
 
-        product_info = {"product_id": id, "seller_id": message.from_user.id, "title": data['title'],
-                        "cost": data['cost'], "description": data['description'], "photo": response.content.hex(),
-                        "photo_id": data['photo']}
+        product_info = {"name": data['title'],
+                        "price": int(data['cost']),
+                        "description": data['description'],
+                        "photo": response.content.hex(),
+                        "user_id": message.from_user.id,
+                        "date": '777'}
 
-        json_file = json.dumps(product_info, indent=4)
+        url = 'http://127.0.0.1:5000/product'
+        response = requests.post(url=url, json=product_info)
 
-        # with open("test.json", "w") as file:
-        #     file.write(json_file)
-        #
-        # Image.open(BytesIO(bytes.fromhex(product_info['photo']))).save("test.png")
