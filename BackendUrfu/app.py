@@ -6,7 +6,7 @@ from flask_cors import CORS
 from PIL import Image
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db.init_app(app)
 
@@ -25,7 +25,7 @@ def create_product():
     db.session.add(new_product)
     db.session.commit()
 
-    Image.open(BytesIO(bytes.fromhex(photo))).save(f"E:/Repositories/UrFU_marketplace_bot/public/images/products/{new_product.id}.png")
+    Image.open(BytesIO(bytes.fromhex(photo))).save(f"E:/Repositories/UrFU_marketplace_bot/front/public/images/products/{new_product.id}.png")
 
     return jsonify({'id': new_product.id}), 201
 

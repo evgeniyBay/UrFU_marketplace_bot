@@ -11,9 +11,9 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-from telegramBot.keyboards import main_keyboard, approve_product_kb
-from telegramBot.main import bot, TOKEN
-from telegramBot.sql import sqlite
+from keyboards import main_keyboard, approve_product_kb
+from main import bot, TOKEN
+from sql import sqlite
 
 router = Router()
 

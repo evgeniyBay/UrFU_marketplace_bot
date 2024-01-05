@@ -2,7 +2,7 @@ import asyncio
 
 from aiogram import Bot, Dispatcher
 from handlers import main_handler, sell_handler, product_list_handler
-from telegramBot.sql import sqlite
+from sql import sqlite
 
 TOKEN = "1750341065:AAEFiU6RXZbV1dDK98SktrBSyQ5waOWSg0M"
 bot = Bot(TOKEN)

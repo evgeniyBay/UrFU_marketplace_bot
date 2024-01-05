@@ -2,7 +2,7 @@ from aiogram import Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
-from telegramBot.keyboards import main_keyboard
+from keyboards import main_keyboard
 
 router = Router()
 

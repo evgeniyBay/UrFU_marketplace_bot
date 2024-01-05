@@ -3,14 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-// const test_product = {
-//   photo: process.env.PUBLIC_URL + '/images/Photo.svg',
-//   name: 'Название',
-//   price: 'Цена',
-// }
-
-// const prod = [];
-
 let url = 'http://127.0.0.1:5000/products';
 
 
@@ -58,9 +50,6 @@ request.onload = function () {
   
   ReactDOM.render(<App />, document.getElementById('root'));
 };
-
-
-// const products = responseData;
 
 const Product = ({ photo, name, price}) => (
   <div className="product">
